@@ -1,0 +1,24 @@
+name: CI-CD AdventureWorks
+
+on:
+  push:
+    paths:
+      - 'instawdb.sql'
+    branches:
+      - main
+
+jobs:
+  deploy-sql:
+    runs-on: windows-latest  # Using Windows runner for SQLCMD & Windows Authentication
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Install SQLCMD tools
+      run: |
+        choco install sqlcmd
+
+    - name: Run SQL scripts using Windows Authentication
+      run: |
+        sqlcmd -S ${{ secrets.DB_SERVER }} -d ${{ secrets.DB_NAME }} -E -i instawdb.sql

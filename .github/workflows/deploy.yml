@@ -7,7 +7,7 @@ on:
 
 jobs:
   deploy-sql:
-    runs-on: windows-latest  # Using Windows runner for SQLCMD & Windows Authentication
+    runs-on:  self-hosted  
 
     steps:
       - name: Checkout repository

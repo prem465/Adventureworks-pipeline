@@ -17,4 +17,4 @@ jobs:
         run: choco install sqlcmd -y
 
       - name: Run SQL scripts using Windows Authentication
-        run: sqlcmd -S ${{ secrets.DB_SERVER }} -d ${{ secrets.DB_NAME }} -E -i instawdb.sql
+        run: sqlcmd -S localhost -d AdventureWorks -E -i instawdb.sql

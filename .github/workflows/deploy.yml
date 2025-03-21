@@ -1,3 +1,4 @@
+# Updated workflow to trigger manually
 name: CI-CD AdventureWorks
 
 on:
